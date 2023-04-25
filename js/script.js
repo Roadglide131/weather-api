@@ -22,8 +22,41 @@ $(document).ready(function () {
         }
       });
   }
+  function persist_locations(location) {
+    // Retrieve the array of location names from localStorage
+    let locations = JSON.parse(localStorage.getItem("locations"));
+
+    // If the array doesn't exist in localStorage, create an empty array
+    if (!Array.isArray(locations)) {
+      locations = [];
+    }
+
+    // Add a new location to the array
+    locations.push(location);
+
+    // Convert the updated array to a string
+    const locationsString = JSON.stringify(locations);
+
+    // Store the updated array in localStorage
+    localStorage.setItem("locations", locationsString);
+  }
+  function render_locations() {
+    let locations = JSON.parse(localStorage.getItem("locations"));
+    if (locations) {
+      locations.forEach((element, i) => {
+        $("#locations_container").append(
+          `<button id="${i}" class="btn btn-secondary" type="button">${element}</button>`
+        );
+        $("#" + i).on("click", function () {
+          fetch_city(element);
+        });
+      });
+    }
+  }
+  render_locations();
   $("#search_button").click(function () {
     var search_value = $("#search_input").val();
+    persist_locations(search_value);
     fetch_city(search_value);
   });
   $("#search_input").on("keyup", function (event) {
@@ -31,6 +64,7 @@ $(document).ready(function () {
       // Enter key pressed
       var search_value = $(this).val();
       fetch_city(search_value);
+      persist_locations(search_value);
     }
   });
 });
