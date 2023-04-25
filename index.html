@@ -17,9 +17,10 @@
   <body class="container">
     <div class="row">
       <div class="col">
-        <h3 class="text-center">Search History</h3>
+        <h3 class="text-center">Search for a City</h3>
         <div class="input-group mb-3">
           <input
+            id="search_input"
             type="text"
             class="form-control"
             placeholder="Search"
@@ -31,7 +32,9 @@
           ></span>
         </div>
         <div class="d-grid gap-2">
-          <button class="btn btn-primary" type="button">Search</button>
+          <button class="btn btn-primary" id="search_button" type="button">
+            Search
+          </button>
         </div>
         <hr />
         <div class="d-grid gap-2">
@@ -47,13 +50,34 @@
             <li class="list-group-item">A third item</li>
           </ul>
         </div>
+        <div id="weather_cards" class="row">
+          <div class="col">
+            <div class="card" style="width: 18rem">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">
+                  Card subtitle
+                </h6>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-
+    <script
+      src="https://code.jquery.com/jquery-3.6.4.slim.min.js"
+      integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw="
+      crossorigin="anonymous"
+    ></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
       crossorigin="anonymous"
     ></script>
+    <script src="js/script.js"></script>
   </body>
 </html>
