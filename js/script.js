@@ -7,38 +7,61 @@ $(document).ready(function () {
   function fetch_city(city) {
     fetch(api_url + city + "&appid=" + api_key)
       .then(function (response) {
+        $(".weather-card").remove();
+
         return response.json();
       })
       .then(function (data) {
         var today = data.list[0];
-        $("#state_date").text(today.dt_txt + " " + city);
-        $("#temp").text("temp: " + kelvin_to_fahrenheit(today.main.temp));
+        $("#state_date").text(
+          city + " " + dayjs(today.dt_txt).format("MM/DD/YYYY") + " "
+        );
+        $("#temp").text(
+          "temp: " + kelvin_to_fahrenheit(today.main.temp) + " f"
+        );
         $("#humidity").text("humidity: " + today.main.humidity);
-        for (var i = 0; i < data.list.length; i++) {
-          var weather_data = data.list[i];
-          console.log(weather_data);
-          var kf = kelvin_to_fahrenheit(weather_data.main.temp);
-          console.log(kf);
-        }
+        $("#wind").text("wind: " + today.wind.speed + "  MPH");
+
+        var filteredData = data.list
+          .filter(function (item) {
+            return item.dt_txt.includes("12:00:00");
+          })
+          .slice(0, 5);
+
+        filteredData.forEach(function (item) {
+          const date = new Date(item.dt * 1000);
+          const description = item.weather[0].description;
+          const temperature = kelvin_to_fahrenheit(item.main.temp);
+          console.log(item);
+          $("#weather_cards").append(` <div class="col">
+  <div class="card weather-card">
+  <div class="card-body">
+  <h5 class="card-title">${dayjs(date).format("MM/DD/YYYY")}</h5>
+  <h6 class="card-subtitle mb-2">
+  <ul>
+  <li>temp: ${temperature} f </li>
+  <li>humidity: ${item.main.humidity}%</li>
+  <li>wind: ${item.wind.speed} MPH </li>
+  <li>pressure: ${item.main.pressure}</li>
+  </h6>
+  
+  </div>
+  </div>`);
+        });
       });
   }
   function persist_locations(location) {
-    // Retrieve the array of location names from localStorage
     let locations = JSON.parse(localStorage.getItem("locations"));
-
-    // If the array doesn't exist in localStorage, create an empty array
     if (!Array.isArray(locations)) {
       locations = [];
     }
 
-    // Add a new location to the array
     locations.push(location);
-
-    // Convert the updated array to a string
+    locations = [...new Set(locations)];
     const locationsString = JSON.stringify(locations);
-
-    // Store the updated array in localStorage
     localStorage.setItem("locations", locationsString);
+    $("#locations_container button").remove();
+    render_locations();
   }
   function render_locations() {
     let locations = JSON.parse(localStorage.getItem("locations"));

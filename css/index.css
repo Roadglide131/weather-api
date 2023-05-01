@@ -1,0 +1,9 @@
+.weather-card {
+  background: #313b4d !important;
+  color: #fff;
+  width: 18rem;
+  margin: 5px;
+}
+.weather-card li {
+  list-style: none;
+}

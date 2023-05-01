@@ -1,80 +1,72 @@
 <html>
-  <head>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
-      integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e"
-      crossorigin="anonymous"
-    />
-    <title>Weather App</title>
-  </head>
-  <body class="container">
-    <div class="row">
-      <div class="col">
-        <h3 class="text-center">Search for a City</h3>
-        <div class="input-group mb-3">
-          <input
-            id="search_input"
-            type="text"
-            class="form-control"
-            placeholder="Search"
-            aria-label="Search"
-            aria-describedby="basic-addon1"
-          />
-          <span class="input-group-text" id="basic-addon1"
-            ><span class="bi bi-search"></span
-          ></span>
-        </div>
-        <div class="d-grid gap-2">
-          <button class="btn btn-primary" id="search_button" type="button">
-            Search
-          </button>
-        </div>
-        <hr />
-        <div id="locations_container" class="d-grid gap-2"></div>
-      </div>
-      <div class="col">
-        <div class="card" style="width: 100%">
-          <ul class="list-group list-group-flush">
-            <li id="state_date" class="list-group-item"></li>
-            <li id="temp" class="list-group-item"></li>
-            <li id="humidity" class="list-group-item"></li>
-          </ul>
-        </div>
-        <div id="weather_cards" class="row">
-          <div class="col">
-            <div class="card" style="width: 18rem">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <h6 class="card-subtitle mb-2 text-body-secondary">
-                  Card subtitle
-                </h6>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <script
-      src="https://code.jquery.com/jquery-3.6.4.slim.min.js"
-      integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw="
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-      crossorigin="anonymous"
-    ></script>
-    <script src="js/script.js"></script>
-  </body>
+<head>
+<link
+href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+rel="stylesheet"
+integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+crossorigin="anonymous"
+/>
+<link rel="stylesheet" href="./css/index.css">
+<link
+rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e"
+crossorigin="anonymous"
+/>
+<title>Weather App</title>
+</head>
+<body class="container">
+<div class="row">
+<div class="col">
+<h3 class="text-center">Search for a City</h3>
+<div class="input-group mb-3">
+<input
+id="search_input"
+type="text"
+class="form-control"
+placeholder="Search"
+aria-label="Search"
+aria-describedby="basic-addon1"
+/>
+<span class="input-group-text" id="basic-addon1"
+><span class="bi bi-search"></span
+></span>
+</div>
+<div class="d-grid gap-2">
+<button class="btn btn-primary" id="search_button" type="button">
+Search
+</button>
+</div>
+<hr />
+<div id="locations_container" class="d-grid gap-2"></div>
+</div>
+<div class="col">
+<div class="card" style="width: 100%">
+<ul class="list-group list-group-flush">
+<li id="state_date" class="list-group-item"></li>
+<li id="temp" class="list-group-item"></li>
+<li id="humidity" class="list-group-item"></li>
+<li id="wind" class="list-group-item"></li>
+</ul>
+</div>
+<div id="weather_cards" class="row">
+
+</div>
+</div>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+<script
+src="https://code.jquery.com/jquery-3.6.4.slim.min.js"
+integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw="
+crossorigin="anonymous"
+></script>
+<script
+src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+crossorigin="anonymous"
+></script>
+<script src="js/script.js"></script>
+</body>
 </html>
+
