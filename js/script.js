@@ -16,6 +16,10 @@ $(document).ready(function () {
         $("#state_date").text(
           city + " " + dayjs(today.dt_txt).format("MM/DD/YYYY") + " "
         );
+        $("#icon").attr(
+          "src",
+          "https://openweathermap.org/img/wn/" + today.weather[0].icon + ".png"
+        );
         $("#temp").text(
           "temp: " + kelvin_to_fahrenheit(today.main.temp) + " f"
         );
@@ -37,6 +41,7 @@ $(document).ready(function () {
   <div class="card weather-card">
   <div class="card-body">
   <h5 class="card-title">${dayjs(date).format("MM/DD/YYYY")}</h5>
+  <img src="https://openweathermap.org/img/wn/${item.weather[0].icon}.png"
   <h6 class="card-subtitle mb-2">
   <ul>
   <li>temp: ${temperature} f </li>
